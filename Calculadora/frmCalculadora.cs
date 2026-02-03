@@ -32,7 +32,14 @@ namespace Calculadora
                 a = Convert.ToInt32(txtVariableA.Text);
                 b = int.Parse(txtVariableB.Text);
 
-                resultado = a + b;
+                if(rdbSuma.Checked)
+                    resultado = a + b;
+                if (rdbResta.Checked)
+                    resultado = a - b;
+                if (rdbMultiplicacion.Checked)
+                    resultado = a * b;
+                if (rdbDivision.Checked)
+                    resultado = a / b;
 
                 //Mostrar el resultado, Nombre del recuadro, el boton que tiene el recuadro, El sonido de que sale el recuadro
                 MessageBox.Show("El resultado es: " + resultado.ToString(), "Sistema",
