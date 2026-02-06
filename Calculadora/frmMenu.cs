@@ -28,8 +28,14 @@ namespace Calculadora
 
         private void registroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistro registro = new frmRegistro();   
+            frmRegistro registro = new frmRegistro();
             registro.Show();
+        }
+
+        private void relojToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTemporizadores reloj = new frmTemporizadores();
+            reloj.Show();
         }
     }
 }
