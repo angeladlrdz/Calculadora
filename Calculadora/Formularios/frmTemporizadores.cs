@@ -32,7 +32,6 @@ namespace Calculadora.Formularios
         private void alarma1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             alarma1 = Interaction.InputBox("Ingrese la hora: ", "Sistema", "00:00:00 x. x."); //Es un cuadro de texto
-
         }
     }
 }
