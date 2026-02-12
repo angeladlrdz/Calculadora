@@ -18,10 +18,11 @@ namespace Calculadora
 
         public bool saved = false; //Para saber si lo guardo por primera vez o si sobreescribo si es ya estaba guardado anteriormente
         public string path = "";
+        public string texto;
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(ofdEditor.ShowDialog() == DialogResult.OK)//Open file dialog //Si le pico al boton ok va a hacer..
+            if (ofdEditor.ShowDialog() == DialogResult.OK)//Open file dialog //Si le pico al boton ok va a hacer..
             {
                 if (File.Exists(ofdEditor.FileName)) //Si la ruta que estoy seleccionando existe...
                 {
@@ -29,12 +30,12 @@ namespace Calculadora
                     //Si se usa el using StreamReader lee linea por linea hasta que encuentra un salto de linea
                 }
             }
-            
+
         }
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(saved == false)
+            if (saved == false)
             {
                 Guardar();
                 saved = true;
@@ -71,6 +72,32 @@ namespace Calculadora
                     archivo.Write(rtbEditor.Text); //Le voy a mandar lo que esta escrito en el richTextBox
                 }
             }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rtbEditor_TextChanged(object sender, EventArgs e)
+        {
+            //Cuando cambie el texto, es el evento
+            texto = rtbEditor.Text;
+            //El tabulador se puede bloquear desde las propiedades o con codigo '\t'
+            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            tssStatus.Text = palabras.Length.ToString() + " Palabras";
+        }
+
+        private void tssStatus_Click(object sender, EventArgs e)
+        {
+            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r', '\t' }, 
+               StringSplitOptions.RemoveEmptyEntries);
+            string[] parrafos = texto.Split(new char[] { '\n' },
+               StringSplitOptions.RemoveEmptyEntries);
+            //Numero de palabras, numero de letras con espacio, numero de parrafos
+            MessageBox.Show("Estadisticas:\n\nPalabras: " + palabras.Length.ToString() + 
+                "\nLetras: " + texto.Length.ToString() + 
+                "\nParrafos: "+ parrafos.Length.ToString(), "Contador de Palabras");
         }
     }
 }
