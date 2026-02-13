@@ -90,14 +90,30 @@ namespace Calculadora
 
         private void tssStatus_Click(object sender, EventArgs e)
         {
-            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r', '\t' }, 
+            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r', '\t' },
                StringSplitOptions.RemoveEmptyEntries);
             string[] parrafos = texto.Split(new char[] { '\n' },
                StringSplitOptions.RemoveEmptyEntries);
             //Numero de palabras, numero de letras con espacio, numero de parrafos
-            MessageBox.Show("Estadisticas:\n\nPalabras: " + palabras.Length.ToString() + 
-                "\nLetras: " + texto.Length.ToString() + 
-                "\nParrafos: "+ parrafos.Length.ToString(), "Contador de Palabras");
+            MessageBox.Show("Estadisticas:\n\nPalabras: " + palabras.Length.ToString() +
+                "\nLetras: " + texto.Length.ToString() +
+                "\nParrafos: " + parrafos.Length.ToString(), "Contador de Palabras");
+        }
+
+        private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ftdEditor.ShowDialog() == DialogResult.OK) //Para cambiar la fuente si le di en aceptar
+            {
+                rtbEditor.Font = ftdEditor.Font;
+            }
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(cldEditor.ShowDialog() == DialogResult.OK)
+            {
+                rtbEditor.ForeColor = cldEditor.Color;
+            }
         }
     }
 }
