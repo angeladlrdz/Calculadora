@@ -58,7 +58,7 @@
             tabControl1.Location = new Point(-3, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(653, 450);
+            tabControl1.Size = new Size(483, 450);
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -74,14 +74,14 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(645, 422);
+            tabPage1.Size = new Size(475, 422);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Registro";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(387, 372);
+            btnRegistrar.Location = new Point(370, 235);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(75, 23);
             btnRegistrar.TabIndex = 6;
@@ -190,7 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(645, 450);
+            ClientSize = new Size(473, 450);
             Controls.Add(tabControl1);
             Name = "frmRegistro";
             Text = "Registro Alumnos";
