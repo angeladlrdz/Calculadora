@@ -18,17 +18,26 @@ namespace Calculadora.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            XElement xml = new XElement("Directorio"); //Para que se cree el xml
+            XElement xml = new XElement("Personas"); //Para que se cree el xml
 
-            for(int i = 0; i < dgvPersonas.Rows.Count; i++)
+            for(int i = 0; i < dgvPersonas.Rows.Count-1; i++)
             {
-                xml.Add(new XElement("Personas"),
-                    new XAttribute("ID", dgvPersonas.Rows[i].Cells[0].Value),
-                    new XElement("Nombre", dgvPersonas.Rows[i].Cells[1].Value,
-                    new XElement("Telefono", dgvPersonas.Rows[i].Cells[2].Value)));
+                xml.Add(
+                    new XElement("Persona",
+                        new XAttribute("Id", dgvPersonas.Rows[i].Cells[0].Value),
+                    new XElement("Nombre", dgvPersonas.Rows[i].Cells[1].Value),
+                    new XElement("Apellido", dgvPersonas.Rows[i].Cells[2].Value)));
             }
 
-            xml.Save("Archivo.xml");
+            try
+            {
+                xml.Save("Archivo.xml");
+                MessageBox.Show("Guardado","Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
